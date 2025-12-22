@@ -263,6 +263,13 @@ class SamplingParams:
                 logger.info(
                     f"Resolution unspecified, using default: {self.supported_resolutions[0]}"
                 )
+            elif pipeline_config.task_type.is_image_gen():
+                # Default resolution for image models: 1024x1024
+                self.height = 1024
+                self.width = 1024
+                logger.info(
+                    f"Resolution unspecified for image model, using default: 1024x1024"
+                )
 
         if self.height is not None and self.width is not None:
             if self.supported_resolutions is not None:
