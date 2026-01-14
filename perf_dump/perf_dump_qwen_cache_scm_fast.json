@@ -1,0 +1,41 @@
+{
+  "timestamp": "2025-12-05T09:53:22.201952+00:00",
+  "request_id": "23f6cebb-6bf5-42b7-ba6c-6e317be9e97d",
+  "commit_hash": "N/A",
+  "tag": "cli_generate",
+  "total_duration_ms": 10195.09606063366,
+  "steps": [
+    {
+      "name": "InputValidationStage",
+      "duration_ms": 0.05723908543586731
+    },
+    {
+      "name": "TextEncodingStage",
+      "duration_ms": 980.4019443690777
+    },
+    {
+      "name": "ConditioningStage",
+      "duration_ms": 0.011958181858062744
+    },
+    {
+      "name": "TimestepPreparationStage",
+      "duration_ms": 17.423074692487717
+    },
+    {
+      "name": "LatentPreparationStage",
+      "duration_ms": 0.23248419165611267
+    },
+    {
+      "name": "DenoisingStage",
+      "duration_ms": 8629.460271447897
+    },
+    {
+      "name": "DecodingStage",
+      "duration_ms": 561.5245066583157
+    }
+  ],
+  "meta": {
+    "prompt": "A futuristic cityscape at sunset with flying cars",
+    "model": "/tmp/huggingface.co/Qwen/Qwen-Image"
+  }
+}

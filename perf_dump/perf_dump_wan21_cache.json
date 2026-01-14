@@ -1,0 +1,41 @@
+{
+  "timestamp": "2025-12-05T10:02:56.796313+00:00",
+  "request_id": "d811ed18-72db-4093-9064-14a63e148db3",
+  "commit_hash": "N/A",
+  "tag": "cli_generate",
+  "total_duration_ms": 88279.0042757988,
+  "steps": [
+    {
+      "name": "InputValidationStage",
+      "duration_ms": 0.057250261306762695
+    },
+    {
+      "name": "TextEncodingStage",
+      "duration_ms": 2847.657088190317
+    },
+    {
+      "name": "ConditioningStage",
+      "duration_ms": 0.017531216144561768
+    },
+    {
+      "name": "TimestepPreparationStage",
+      "duration_ms": 1.980651170015335
+    },
+    {
+      "name": "LatentPreparationStage",
+      "duration_ms": 0.9403824806213379
+    },
+    {
+      "name": "DenoisingStage",
+      "duration_ms": 77769.62642371655
+    },
+    {
+      "name": "DecodingStage",
+      "duration_ms": 7647.177554666996
+    }
+  ],
+  "meta": {
+    "prompt": "Cinematic establishing shot of a city at dusk",
+    "model": "/home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers"
+  }
+}

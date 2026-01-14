@@ -1,0 +1,41 @@
+{
+  "timestamp": "2025-12-05T10:15:29.660272+00:00",
+  "request_id": "5d7ebb89-8339-4429-abd9-125ab8b3b627",
+  "commit_hash": "N/A",
+  "tag": "cli_generate",
+  "total_duration_ms": 70868.22893843055,
+  "steps": [
+    {
+      "name": "InputValidationStage",
+      "duration_ms": 0.08437782526016235
+    },
+    {
+      "name": "TextEncodingStage",
+      "duration_ms": 2767.997808754444
+    },
+    {
+      "name": "ConditioningStage",
+      "duration_ms": 0.020522624254226685
+    },
+    {
+      "name": "TimestepPreparationStage",
+      "duration_ms": 2.493530511856079
+    },
+    {
+      "name": "LatentPreparationStage",
+      "duration_ms": 1.3836883008480072
+    },
+    {
+      "name": "DenoisingStage",
+      "duration_ms": 66534.06016528606
+    },
+    {
+      "name": "DecodingStage",
+      "duration_ms": 1548.064686357975
+    }
+  ],
+  "meta": {
+    "prompt": "Cinematic establishing shot of a city at dusk",
+    "model": "/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "timestamp": "2025-12-05T09:55:43.874375+00:00",
+  "request_id": "dd3dd388-f07e-4cd9-8192-fdc87292b71e",
+  "commit_hash": "N/A",
+  "tag": "cli_generate",
+  "total_duration_ms": 3268.2548984885216,
+  "steps": [
+    {
+      "name": "InputValidationStage",
+      "duration_ms": 0.05433708429336548
+    },
+    {
+      "name": "TextEncodingStage",
+      "duration_ms": 356.01726546883583
+    },
+    {
+      "name": "ConditioningStage",
+      "duration_ms": 0.01798570156097412
+    },
+    {
+      "name": "TimestepPreparationStage",
+      "duration_ms": 16.86796173453331
+    },
+    {
+      "name": "LatentPreparationStage",
+      "duration_ms": 0.9057410061359406
+    },
+    {
+      "name": "DenoisingStage",
+      "duration_ms": 2501.0314397513866
+    },
+    {
+      "name": "DecodingStage",
+      "duration_ms": 386.4235728979111
+    }
+  ],
+  "meta": {
+    "prompt": "A futuristic cityscape at sunset with flying cars",
+    "model": "/tmp/huggingface.co/Tongyi-MAI/Z-Image-Turbo"
+  }
+}

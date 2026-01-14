@@ -1,0 +1,130 @@
+WARNING 12-05 17:51:14 [_attention_dispatch.py:343] Re-registered NATIVE attention backend to enable context parallelism with attn mask. You can disable this behavior by export env: export CACHE_DIT_ENABLE_CUSTOM_CP_NATIVE_ATTN_DISPATCH=0.
+INFO 12-05 17:51:14 [_attention_dispatch.py:456] Registered new attention backend: _SDPA_CUDNN, to enable context parallelism with attn mask. You can disable it by: export CACHE_DIT_ENABLE_CUSTOM_CP_NATIVE_ATTN_DISPATCH=0.
+[12-05 17:51:15] server_args: {"model_path": "/tmp/huggingface.co/Qwen/Qwen-Image", "attention_backend": null, "mode": "inference", "workload_type": "t2v", "cache_strategy": "none", "distributed_executor_backend": "mp", "nccl_port": null, "trust_remote_code": false, "revision": null, "num_gpus": 1, "tp_size": 1, "sp_degree": 1, "ulysses_degree": 1, "ring_degree": 1, "dp_size": 1, "dp_degree": 1, "enable_cfg_parallel": false, "hsdp_replicate_dim": 1, "hsdp_shard_dim": 1, "dist_timeout": null, "lora_path": null, "lora_nickname": "default", "vae_path": null, "lora_target_modules": null, "output_type": "pil", "dit_cpu_offload": true, "use_fsdp_inference": false, "text_encoder_cpu_offload": true, "image_encoder_cpu_offload": true, "vae_cpu_offload": true, "pin_cpu_memory": true, "mask_strategy_file_path": null, "STA_mode": "STA_inference", "skip_time_steps": 15, "enable_torch_compile": false, "disable_autocast": true, "VSA_sparsity": 0.0, "moba_config_path": null, "moba_config": {}, "master_port": 30080, "host": null, "port": null, "scheduler_port": 5567, "enable_stage_verification": true, "prompt_file_path": null, "model_paths": {}, "model_loaded": {"transformer": true, "vae": true}, "override_transformer_cls_name": null, "boundary_ratio": null, "log_level": "info"}
+[12-05 17:51:15] Local mode: True
+[12-05 17:51:15] Starting server...
+WARNING 12-05 17:51:21 [_attention_dispatch.py:343] Re-registered NATIVE attention backend to enable context parallelism with attn mask. You can disable this behavior by export env: export CACHE_DIT_ENABLE_CUSTOM_CP_NATIVE_ATTN_DISPATCH=0.
+INFO 12-05 17:51:21 [_attention_dispatch.py:456] Registered new attention backend: _SDPA_CUDNN, to enable context parallelism with attn mask. You can disable it by: export CACHE_DIT_ENABLE_CUSTOM_CP_NATIVE_ATTN_DISPATCH=0.
+[12-05 17:51:21] Scheduler bind at endpoint: tcp://localhost:5567
+[12-05 17:51:22] Initializing distributed environment with world_size=1, device=cuda:0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[12-05 17:51:24] Diffusers version: 0.34.0.dev0
+[12-05 17:51:24] Found model info: ModelInfo(pipeline_cls=<class 'sglang.multimodal_gen.runtime.pipelines.qwen_image.QwenImagePipeline'>, sampling_param_cls=<class 'sglang.multimodal_gen.configs.sample.qwenimage.QwenImageSamplingParams'>, pipeline_config_cls=<class 'sglang.multimodal_gen.configs.pipeline_configs.qwen_image.QwenImagePipelineConfig'>)
+[12-05 17:51:24] Loading pipeline modules...
+[12-05 17:51:24] Model already exists locally
+[12-05 17:51:24] Model path: /tmp/huggingface.co/Qwen/Qwen-Image
+[12-05 17:51:24] Diffusers version: 0.34.0.dev0
+[12-05 17:51:24] Loading pipeline modules from config: {'_class_name': 'QwenImagePipeline', '_diffusers_version': '0.34.0.dev0', 'scheduler': ['diffusers', 'FlowMatchEulerDiscreteScheduler'], 'text_encoder': ['transformers', 'Qwen2_5_VLForConditionalGeneration'], 'tokenizer': ['transformers', 'Qwen2Tokenizer'], 'transformer': ['diffusers', 'QwenImageTransformer2DModel'], 'vae': ['diffusers', 'AutoencoderKLQwenImage']}
+[12-05 17:51:24] Loading required components: ['text_encoder', 'tokenizer', 'vae', 'transformer', 'scheduler']
+Set TORCH_CUDA_ARCH_LIST to 9.0
+Loading required modules:   0%|          | 0/5 [00:00<?, ?it/s][12-05 17:51:24] Loading text_encoder using transformers from /tmp/huggingface.co/Qwen/Qwen-Image/text_encoder
+[12-05 17:51:24] Loading text_encoder from /tmp/huggingface.co/Qwen/Qwen-Image/text_encoder
+[12-05 17:51:24] HF model config: {'bos_token_id': 151643, 'do_sample': True, 'eos_token_id': 151645, 'pad_token_id': 151643, 'repetition_penalty': 1.05, 'temperature': 0.1, 'top_k': 1, 'top_p': 0.001, 'architectures': ['Qwen2_5_VLForConditionalGeneration'], 'attention_dropout': 0.0, 'hidden_act': 'silu', 'hidden_size': 3584, 'image_token_id': 151655, 'initializer_range': 0.02, 'intermediate_size': 18944, 'max_position_embeddings': 128000, 'max_window_layers': 28, 'num_attention_heads': 28, 'num_hidden_layers': 28, 'num_key_value_heads': 4, 'rms_norm_eps': 1e-06, 'rope_scaling': {'mrope_section': [16, 24, 24], 'rope_type': 'default', 'type': 'default'}, 'rope_theta': 1000000.0, 'sliding_window': 32768, 'text_config': {'architectures': ['Qwen2_5_VLForConditionalGeneration'], 'attention_dropout': 0.0, 'bos_token_id': 151643, 'eos_token_id': 151645, 'hidden_act': 'silu', 'hidden_size': 3584, 'image_token_id': None, 'initializer_range': 0.02, 'intermediate_size': 18944, 'layer_types': ['full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention', 'full_attention'], 'max_position_embeddings': 128000, 'max_window_layers': 28, 'model_type': 'qwen2_5_vl_text', 'num_attention_heads': 28, 'num_hidden_layers': 28, 'num_key_value_heads': 4, 'rms_norm_eps': 1e-06, 'rope_scaling': {'mrope_section': [16, 24, 24], 'rope_type': 'default', 'type': 'default'}, 'rope_theta': 1000000.0, 'sliding_window': None, 'torch_dtype': 'float32', 'use_cache': True, 'use_sliding_window': False, 'video_token_id': None, 'vision_end_token_id': 151653, 'vision_start_token_id': 151652, 'vision_token_id': 151654, 'vocab_size': 152064}, 'tie_word_embeddings': False, 'use_cache': True, 'use_sliding_window': False, 'video_token_id': 151656, 'vision_config': {'depth': 32, 'fullatt_block_indexes': [7, 15, 23, 31], 'hidden_act': 'silu', 'hidden_size': 1280, 'in_channels': 3, 'in_chans': 3, 'initializer_range': 0.02, 'intermediate_size': 3420, 'model_type': 'qwen2_5_vl', 'num_heads': 16, 'out_hidden_size': 3584, 'patch_size': 14, 'spatial_merge_size': 2, 'spatial_patch_size': 14, 'temporal_patch_size': 2, 'tokens_per_second': 2, 'torch_dtype': 'float32', 'window_size': 112}, 'vision_end_token_id': 151653, 'vision_start_token_id': 151652, 'vision_token_id': 151654, 'vocab_size': 152064}
+[12-05 17:51:24] Using FlashAttention (FA3 for hopper, FA4 for blackwell) backend
+
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+[A
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:00,  3.13it/s]
+[A
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:01<00:01,  1.43it/s]
+[A
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:02<00:00,  1.16it/s]
+[A
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.07it/s]
+[ALoading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.18it/s]
+
+[12-05 17:51:28] Loading weights took 3.49 seconds
+[12-05 17:51:50] Loaded text_encoder: FSDPQwen2_5_VLForConditionalGeneration from: customized
+[12-05 17:51:50] Loaded module text_encoder from /tmp/huggingface.co/Qwen/Qwen-Image/text_encoder
+Loading required modules:  20%|██        | 1/5 [00:26<01:44, 26.01s/it][12-05 17:51:50] Loading tokenizer using transformers from /tmp/huggingface.co/Qwen/Qwen-Image/tokenizer
+[12-05 17:51:50] Loading tokenizer from /tmp/huggingface.co/Qwen/Qwen-Image/tokenizer
+[12-05 17:51:51] Loaded tokenizer: Qwen2TokenizerFast from: customized
+[12-05 17:51:51] Loaded module tokenizer from /tmp/huggingface.co/Qwen/Qwen-Image/tokenizer
+Loading required modules:  40%|████      | 2/5 [00:26<00:32, 10.90s/it][12-05 17:51:51] Loading vae using diffusers from /tmp/huggingface.co/Qwen/Qwen-Image/vae
+[12-05 17:51:51] Loading vae from /tmp/huggingface.co/Qwen/Qwen-Image/vae
+[12-05 17:51:51] HF model config: {'attn_scales': [], 'base_dim': 96, 'dim_mult': [1, 2, 4, 4], 'dropout': 0.0, 'latents_mean': [-0.7571, -0.7089, -0.9113, 0.1075, -0.1745, 0.9653, -0.1517, 1.5508, 0.4134, -0.0715, 0.5517, -0.3632, -0.1922, -0.9497, 0.2503, -0.2921], 'latents_std': [2.8184, 1.4541, 2.3275, 2.6558, 1.2196, 1.7708, 2.6052, 2.0743, 3.2687, 2.1526, 2.8652, 1.5579, 1.6382, 1.1253, 2.8251, 1.916], 'num_res_blocks': 2, 'temperal_downsample': [False, True, True], 'z_dim': 16}
+[12-05 17:51:51] Loaded vae: AutoencoderKLQwenImage from: customized
+[12-05 17:51:51] Loaded module vae from /tmp/huggingface.co/Qwen/Qwen-Image/vae
+Loading required modules:  60%|██████    | 3/5 [00:26<00:11,  5.97s/it][12-05 17:51:51] Loading transformer using diffusers from /tmp/huggingface.co/Qwen/Qwen-Image/transformer
+[12-05 17:51:51] Loading transformer from /tmp/huggingface.co/Qwen/Qwen-Image/transformer
+[12-05 17:51:51] transformer cls_name: QwenImageTransformer2DModel
+[12-05 17:51:51] Loading model from 9 safetensors files: ['/tmp/huggingface.co/Qwen/Qwen-Image/transformer/diffusion_pytorch_model-00001-of-00009.safetensors', '/tmp/huggingface.co/Qwen/Qwen-Image/transformer/diffusion_pytorch_model-00002-of-00009.safetensors', '/tmp/huggingface.co/Qwen/Qwen-Image/transformer/diffusion_pytorch_model-00003-of-00009.safetensors', '/tmp/huggingface.co/Qwen/Qwen-Image/transformer/diffusion_pytorch_model-00004-of-00009.safetensors', '/tmp/huggingface.co/Qwen/Qwen-Image/transformer/diffusion_pytorch_model-00005-of-00009.safetensors', '/tmp/huggingface.co/Qwen/Qwen-Image/transformer/diffusion_pytorch_model-00006-of-00009.safetensors', '/tmp/huggingface.co/Qwen/Qwen-Image/transformer/diffusion_pytorch_model-00007-of-00009.safetensors', '/tmp/huggingface.co/Qwen/Qwen-Image/transformer/diffusion_pytorch_model-00008-of-00009.safetensors', '/tmp/huggingface.co/Qwen/Qwen-Image/transformer/diffusion_pytorch_model-00009-of-00009.safetensors']
+[12-05 17:51:51] Loading QwenImageTransformer2DModel, default_dtype: torch.bfloat16
+
+Loading safetensors checkpoint shards:   0% Completed | 0/9 [00:00<?, ?it/s]
+[ALoading safetensors checkpoint shards: 100% Completed | 9/9 [00:00<00:00, 326.67it/s]
+
+[12-05 17:52:01] Loaded model with 20.43B parameters
+[12-05 17:52:01] Loaded transformer: QwenImageTransformer2DModel from: customized
+[12-05 17:52:01] Loaded module transformer from /tmp/huggingface.co/Qwen/Qwen-Image/transformer
+Loading required modules:  80%|████████  | 4/5 [00:36<00:07,  7.51s/it][12-05 17:52:01] Loading scheduler using diffusers from /tmp/huggingface.co/Qwen/Qwen-Image/scheduler
+[12-05 17:52:01] Loading scheduler from /tmp/huggingface.co/Qwen/Qwen-Image/scheduler
+[12-05 17:52:01] Loaded scheduler: FlowMatchEulerDiscreteScheduler from: customized
+[12-05 17:52:01] Loaded module scheduler from /tmp/huggingface.co/Qwen/Qwen-Image/scheduler
+Loading required modules: 100%|██████████| 5/5 [00:36<00:00,  7.26s/it]
+[12-05 17:52:01] Pipelines instantiated
+[12-05 17:52:01] Worker 0: Initialized device, model, and distributed environment.
+[12-05 17:52:01] Worker 0: Scheduler loop started.
+[12-05 17:52:01] Rank 0 scheduler listening on tcp://*:5567
+[12-05 17:52:01] Sampling params:
+                       width: 512
+                      height: 512
+                  num_frames: 1
+                      prompt: A futuristic cityscape at sunset with flying cars
+                  neg_prompt:  
+                        seed: 1024
+                 infer_steps: 50
+      num_outputs_per_prompt: 1
+              guidance_scale: 4.0
+     embedded_guidance_scale: 6.0
+                    n_tokens: 4096
+                  flow_shift: None
+                  image_path: None
+                 save_output: True
+            output_file_path: outputs/qwen_cache_scm_medium.png
+        
+[12-05 17:52:01] Processing prompt 1/1: A futuristic cityscape at sunset with flying cars
+[12-05 17:52:01] Creating pipeline stages...
+[12-05 17:52:01] Using FlashAttention (FA3 for hopper, FA4 for blackwell) backend
+[12-05 17:52:01] Running pipeline stages: ['input_validation_stage', 'prompt_encoding_stage_primary', 'conditioning_stage', 'timestep_preparation_stage', 'latent_preparation_stage', 'denoising_stage', 'decoding_stage']
+[12-05 17:52:01] [InputValidationStage] started...
+[12-05 17:52:01] [InputValidationStage] finished in 0.0002 seconds
+[12-05 17:52:01] [TextEncodingStage] started...
+[12-05 17:52:02] [TextEncodingStage] finished in 1.0842 seconds
+[12-05 17:52:02] [ConditioningStage] started...
+[12-05 17:52:02] [ConditioningStage] finished in 0.0001 seconds
+[12-05 17:52:02] [TimestepPreparationStage] started...
+[12-05 17:52:02] [TimestepPreparationStage] finished in 0.0250 seconds
+[12-05 17:52:02] [LatentPreparationStage] started...
+[12-05 17:52:02] [LatentPreparationStage] finished in 0.0004 seconds
+[12-05 17:52:02] [DenoisingStage] started...
+[12-05 17:52:02] SCM: generated mask with 29 compute steps, 21 cache steps (preset=medium)
+[12-05 17:52:02] Enabling cache-dit on transformer with config: Fn=1, Bn=0, W=4, R=0.24, MC=3, TaylorSeer=False (order=1), steps=50
+[12-05 17:52:02] SCM enabled: 29 compute steps, 21 cache steps, policy=dynamic
+INFO 12-05 17:52:02 [cache_adapter.py:49] QwenImageTransformer2DModel is officially supported by cache-dit. Use it's pre-defined BlockAdapter directly!
+WARNING 12-05 17:52:02 [__init__.py:34] Transformer class QwenImageTransformer2DModel is from sglang.multimodal_gen.runtime.models.dits.qwen_image not diffusers, skipping strict type check in BlockAdapter.
+INFO 12-05 17:52:02 [block_adapters.py:229] Auto fill blocks_name: transformer_blocks.
+INFO 12-05 17:52:02 [block_adapters.py:503] Match Block Forward Pattern: QwenImageTransformerBlock, ForwardPattern.Pattern_1
+INFO 12-05 17:52:02 [block_adapters.py:503] IN:('hidden_states', 'encoder_hidden_states'), OUT:('encoder_hidden_states', 'hidden_states'))
+INFO 12-05 17:52:02 [cache_adapter.py:134] Use custom 'enable_separate_cfg' from BlockAdapter: True. Pipeline: FakeDiffusionPipeline.
+INFO 12-05 17:52:02 [cache_adapter.py:307] Collected Context Config: DBCache_F1B0_W4I1M0MC3_R0.24_SCM11111111111111110011100000111000001110000011100001_dynamic, Calibrator Config: None
+INFO 12-05 17:52:02 [pattern_base.py:70] Match Blocks: CachedBlocks_Pattern_0_1_2, for transformer_blocks, cache_context: transformer_blocks_139892691904576, context_manager: FakeDiffusionPipeline_139892701726288.
+[12-05 17:52:02] cache-dit enabled on transformer (steps=50, Fn=1, Bn=0, rdt=0.240)
+  0%|          | 0/50 [00:00<?, ?it/s]  2%|▏         | 1/50 [00:01<00:59,  1.21s/it]  4%|▍         | 2/50 [00:01<00:30,  1.57it/s]  6%|▌         | 3/50 [00:01<00:22,  2.11it/s]  8%|▊         | 4/50 [00:02<00:18,  2.51it/s] 10%|█         | 5/50 [00:02<00:16,  2.81it/s] 12%|█▏        | 6/50 [00:02<00:14,  3.02it/s] 14%|█▍        | 7/50 [00:02<00:13,  3.18it/s] 16%|█▌        | 8/50 [00:03<00:12,  3.29it/s] 18%|█▊        | 9/50 [00:03<00:12,  3.37it/s] 20%|██        | 10/50 [00:03<00:11,  3.42it/s] 22%|██▏       | 11/50 [00:03<00:11,  3.46it/s] 24%|██▍       | 12/50 [00:04<00:10,  3.49it/s] 26%|██▌       | 13/50 [00:04<00:10,  3.51it/s] 28%|██▊       | 14/50 [00:04<00:10,  3.52it/s] 30%|███       | 15/50 [00:05<00:09,  3.53it/s] 32%|███▏      | 16/50 [00:05<00:09,  3.54it/s] 38%|███▊      | 19/50 [00:05<00:05,  5.59it/s] 40%|████      | 20/50 [00:05<00:06,  4.98it/s] 42%|████▏     | 21/50 [00:06<00:06,  4.56it/s] 48%|████▊     | 24/50 [00:06<00:04,  6.29it/s] 54%|█████▍    | 27/50 [00:06<00:03,  7.47it/s] 56%|█████▌    | 28/50 [00:07<00:03,  6.32it/s] 58%|█████▊    | 29/50 [00:07<00:03,  5.50it/s] 64%|██████▍   | 32/50 [00:07<00:02,  6.93it/s] 70%|███████   | 35/50 [00:07<00:01,  7.91it/s] 72%|███████▏  | 36/50 [00:08<00:02,  6.63it/s] 74%|███████▍  | 37/50 [00:08<00:02,  5.72it/s] 80%|████████  | 40/50 [00:08<00:01,  7.08it/s] 86%|████████▌ | 43/50 [00:09<00:00,  8.02it/s] 88%|████████▊ | 44/50 [00:09<00:00,  6.71it/s] 90%|█████████ | 45/50 [00:09<00:00,  5.78it/s] 96%|█████████▌| 48/50 [00:10<00:00,  7.12it/s]100%|██████████| 50/50 [00:10<00:00,  7.07it/s]100%|██████████| 50/50 [00:10<00:00,  4.86it/s]
+[12-05 17:52:12] [DenoisingStage] average time per step: 0.2059 seconds
+[12-05 17:52:12] [DenoisingStage] finished in 10.3035 seconds
+[12-05 17:52:12] [DecodingStage] started...
+[12-05 17:52:13] [DecodingStage] finished in 0.8171 seconds
+[12-05 17:52:13] Saved output to outputs/qwen_cache_scm_medium.png
+[12-05 17:52:13] Pixel data generated successfully in 12.40 seconds
+[12-05 17:52:13] Completed batch processing. Generated 1 outputs in 12.41 seconds.
+[12-05 17:52:13] Generator was garbage collected without being shut down. Attempting to shut down the local server and client.
+[Performance] Metrics dumped to: /home/hadoop-scale-pmf/sgld_benchmark/perf_dump_qwen_cache_scm_medium.json
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

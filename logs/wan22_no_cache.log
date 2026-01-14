@@ -1,0 +1,132 @@
+WARNING 12-05 18:10:16 [_attention_dispatch.py:343] Re-registered NATIVE attention backend to enable context parallelism with attn mask. You can disable this behavior by export env: export CACHE_DIT_ENABLE_CUSTOM_CP_NATIVE_ATTN_DISPATCH=0.
+INFO 12-05 18:10:16 [_attention_dispatch.py:456] Registered new attention backend: _SDPA_CUDNN, to enable context parallelism with attn mask. You can disable it by: export CACHE_DIT_ENABLE_CUSTOM_CP_NATIVE_ATTN_DISPATCH=0.
+[12-05 18:10:17] server_args: {"model_path": "/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers", "attention_backend": null, "mode": "inference", "workload_type": "t2v", "cache_strategy": "none", "distributed_executor_backend": "mp", "nccl_port": null, "trust_remote_code": false, "revision": null, "num_gpus": 1, "tp_size": 1, "sp_degree": 1, "ulysses_degree": 1, "ring_degree": 1, "dp_size": 1, "dp_degree": 1, "enable_cfg_parallel": false, "hsdp_replicate_dim": 1, "hsdp_shard_dim": 1, "dist_timeout": null, "lora_path": null, "lora_nickname": "default", "vae_path": null, "lora_target_modules": null, "output_type": "pil", "dit_cpu_offload": true, "use_fsdp_inference": false, "text_encoder_cpu_offload": true, "image_encoder_cpu_offload": true, "vae_cpu_offload": true, "pin_cpu_memory": true, "mask_strategy_file_path": null, "STA_mode": "STA_inference", "skip_time_steps": 15, "enable_torch_compile": false, "disable_autocast": false, "VSA_sparsity": 0.0, "moba_config_path": null, "moba_config": {}, "master_port": 30089, "host": null, "port": null, "scheduler_port": 5562, "enable_stage_verification": true, "prompt_file_path": null, "model_paths": {}, "model_loaded": {"transformer": true, "vae": true}, "override_transformer_cls_name": null, "boundary_ratio": null, "log_level": "info"}
+[12-05 18:10:17] Local mode: True
+[12-05 18:10:17] Starting server...
+WARNING 12-05 18:10:23 [_attention_dispatch.py:343] Re-registered NATIVE attention backend to enable context parallelism with attn mask. You can disable this behavior by export env: export CACHE_DIT_ENABLE_CUSTOM_CP_NATIVE_ATTN_DISPATCH=0.
+INFO 12-05 18:10:23 [_attention_dispatch.py:456] Registered new attention backend: _SDPA_CUDNN, to enable context parallelism with attn mask. You can disable it by: export CACHE_DIT_ENABLE_CUSTOM_CP_NATIVE_ATTN_DISPATCH=0.
+[12-05 18:10:24] Scheduler bind at endpoint: tcp://localhost:5562
+[12-05 18:10:25] Initializing distributed environment with world_size=1, device=cuda:0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[12-05 18:10:30] Diffusers version: 0.35.0.dev0
+[12-05 18:10:30] Found model info: ModelInfo(pipeline_cls=<class 'sglang.multimodal_gen.runtime.pipelines.wan_pipeline.WanPipeline'>, sampling_param_cls=<class 'sglang.multimodal_gen.configs.sample.wan.Wan2_2_T2V_A14B_SamplingParam'>, pipeline_config_cls=<class 'sglang.multimodal_gen.configs.pipeline_configs.wan.Wan2_2_T2V_A14B_Config'>)
+[12-05 18:10:30] Loading pipeline modules...
+[12-05 18:10:30] Model already exists locally
+[12-05 18:10:30] Model path: /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers
+[12-05 18:10:30] Diffusers version: 0.35.0.dev0
+[12-05 18:10:30] Loading pipeline modules from config: {'_class_name': 'WanPipeline', '_diffusers_version': '0.35.0.dev0', 'boundary_ratio': 0.875, 'scheduler': ['diffusers', 'UniPCMultistepScheduler'], 'text_encoder': ['transformers', 'UMT5EncoderModel'], 'tokenizer': ['transformers', 'T5TokenizerFast'], 'transformer': ['diffusers', 'WanTransformer3DModel'], 'transformer_2': ['diffusers', 'WanTransformer3DModel'], 'vae': ['diffusers', 'AutoencoderKLWan']}
+[12-05 18:10:30] MoE pipeline detected. Adding transformer_2 to self.required_config_modules...
+[12-05 18:10:30] MoE pipeline detected. Setting boundary ratio to 0.875
+[12-05 18:10:30] Loading required components: ['text_encoder', 'tokenizer', 'vae', 'transformer', 'scheduler', 'transformer_2']
+Set TORCH_CUDA_ARCH_LIST to 9.0
+Loading required modules:   0%|          | 0/6 [00:00<?, ?it/s][12-05 18:10:30] Loading text_encoder using transformers from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/text_encoder
+[12-05 18:10:30] Loading text_encoder from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/text_encoder
+[12-05 18:10:30] HF model config: {'architectures': ['UMT5EncoderModel'], 'classifier_dropout': 0.0, 'd_ff': 10240, 'd_kv': 64, 'd_model': 4096, 'decoder_start_token_id': 0, 'dense_act_fn': 'gelu_new', 'dropout_rate': 0.1, 'eos_token_id': 1, 'feed_forward_proj': 'gated-gelu', 'initializer_factor': 1.0, 'is_encoder_decoder': True, 'is_gated_act': True, 'layer_norm_epsilon': 1e-06, 'num_decoder_layers': 24, 'num_heads': 64, 'num_layers': 24, 'output_past': True, 'pad_token_id': 0, 'relative_attention_max_distance': 128, 'relative_attention_num_buckets': 32, 'scalable_attention': True, 'tie_word_embeddings': False, 'use_cache': True, 'vocab_size': 256384}
+
+Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+[A
+Loading safetensors checkpoint shards:  33% Completed | 1/3 [00:02<00:04,  2.18s/it]
+[A
+Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:02<00:01,  1.29s/it]
+[A
+Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:05<00:00,  1.71s/it]
+[ALoading safetensors checkpoint shards: 100% Completed | 3/3 [00:05<00:00,  1.69s/it]
+
+[12-05 18:10:35] Loading weights took 5.12 seconds
+[12-05 18:11:02] Loaded text_encoder: FSDPUMT5EncoderModel from: customized
+[12-05 18:11:02] Loaded module text_encoder from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/text_encoder
+Loading required modules:  17%|█▋        | 1/6 [00:31<02:39, 31.92s/it][12-05 18:11:02] Loading tokenizer using transformers from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/tokenizer
+[12-05 18:11:02] Loading tokenizer from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/tokenizer
+[12-05 18:11:02] Loaded tokenizer: T5TokenizerFast from: customized
+[12-05 18:11:02] Loaded module tokenizer from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/tokenizer
+Loading required modules:  33%|███▎      | 2/6 [00:32<00:53, 13.40s/it][12-05 18:11:02] Loading vae using diffusers from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/vae
+[12-05 18:11:02] Loading vae from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/vae
+[12-05 18:11:02] HF model config: {'attn_scales': [], 'base_dim': 96, 'dim_mult': [1, 2, 4, 4], 'dropout': 0.0, 'latents_mean': [-0.7571, -0.7089, -0.9113, 0.1075, -0.1745, 0.9653, -0.1517, 1.5508, 0.4134, -0.0715, 0.5517, -0.3632, -0.1922, -0.9497, 0.2503, -0.2921], 'latents_std': [2.8184, 1.4541, 2.3275, 2.6558, 1.2196, 1.7708, 2.6052, 2.0743, 3.2687, 2.1526, 2.8652, 1.5579, 1.6382, 1.1253, 2.8251, 1.916], 'num_res_blocks': 2, 'temperal_downsample': [False, True, True], 'z_dim': 16}
+[12-05 18:11:02] Loaded vae: AutoencoderKLWan from: customized
+[12-05 18:11:02] Loaded module vae from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/vae
+[12-05 18:11:02] Loading transformer using diffusers from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer
+[12-05 18:11:02] Loading transformer from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer
+[12-05 18:11:02] transformer cls_name: WanTransformer3DModel
+[12-05 18:11:02] Loading model from 12 safetensors files: ['/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer/diffusion_pytorch_model-00001-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer/diffusion_pytorch_model-00002-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer/diffusion_pytorch_model-00003-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer/diffusion_pytorch_model-00004-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer/diffusion_pytorch_model-00005-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer/diffusion_pytorch_model-00006-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer/diffusion_pytorch_model-00007-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer/diffusion_pytorch_model-00008-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer/diffusion_pytorch_model-00009-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer/diffusion_pytorch_model-00010-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer/diffusion_pytorch_model-00011-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer/diffusion_pytorch_model-00012-of-00012.safetensors']
+[12-05 18:11:02] Loading WanTransformer3DModel, default_dtype: torch.bfloat16
+[12-05 18:11:02] Using FlashAttention (FA3 for hopper, FA4 for blackwell) backend
+
+Loading safetensors checkpoint shards:   0% Completed | 0/12 [00:00<?, ?it/s]
+[ALoading safetensors checkpoint shards: 100% Completed | 12/12 [00:00<00:00, 469.23it/s]
+
+[12-05 18:11:11] Loaded model with 14.29B parameters
+[12-05 18:11:11] Loaded transformer: WanTransformer3DModel from: customized
+[12-05 18:11:11] Loaded module transformer from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer
+Loading required modules:  67%|██████▋   | 4/6 [00:41<00:15,  7.77s/it][12-05 18:11:11] Loading scheduler using diffusers from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/scheduler
+[12-05 18:11:11] Loading scheduler from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/scheduler
+[12-05 18:11:11] Loaded scheduler: UniPCMultistepScheduler from: customized
+[12-05 18:11:11] Loaded module scheduler from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/scheduler
+[12-05 18:11:11] Loading transformer_2 using diffusers from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer_2
+[12-05 18:11:11] Loading transformer_2 from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer_2
+[12-05 18:11:11] transformer cls_name: WanTransformer3DModel
+[12-05 18:11:11] Loading model from 12 safetensors files: ['/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer_2/diffusion_pytorch_model-00001-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer_2/diffusion_pytorch_model-00002-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer_2/diffusion_pytorch_model-00003-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer_2/diffusion_pytorch_model-00004-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer_2/diffusion_pytorch_model-00005-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer_2/diffusion_pytorch_model-00006-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer_2/diffusion_pytorch_model-00007-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer_2/diffusion_pytorch_model-00008-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer_2/diffusion_pytorch_model-00009-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer_2/diffusion_pytorch_model-00010-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer_2/diffusion_pytorch_model-00011-of-00012.safetensors', '/tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer_2/diffusion_pytorch_model-00012-of-00012.safetensors']
+[12-05 18:11:11] Loading WanTransformer3DModel, default_dtype: torch.bfloat16
+
+Loading safetensors checkpoint shards:   0% Completed | 0/12 [00:00<?, ?it/s]
+[A
+Loading safetensors checkpoint shards:   8% Completed | 1/12 [00:00<00:05,  2.02it/s]
+[ALoading safetensors checkpoint shards: 100% Completed | 12/12 [00:00<00:00, 23.17it/s]
+
+[12-05 18:11:22] Loaded model with 14.29B parameters
+[12-05 18:11:22] Loaded transformer_2: WanTransformer3DModel from: customized
+[12-05 18:11:22] Loaded module transformer_2 from /tmp/huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/transformer_2
+Loading required modules: 100%|██████████| 6/6 [00:51<00:00,  6.57s/it]Loading required modules: 100%|██████████| 6/6 [00:51<00:00,  8.61s/it]
+[12-05 18:11:22] Pipelines instantiated
+[12-05 18:11:22] Worker 0: Initialized device, model, and distributed environment.
+[12-05 18:11:22] Worker 0: Scheduler loop started.
+[12-05 18:11:22] Rank 0 scheduler listening on tcp://*:5562
+[12-05 18:11:22] Sampling params:
+                       width: 512
+                      height: 288
+                  num_frames: 17
+                      prompt: Cinematic establishing shot of a city at dusk
+                  neg_prompt: 色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走
+                        seed: 1024
+                 infer_steps: 40
+      num_outputs_per_prompt: 1
+              guidance_scale: 4.0
+     embedded_guidance_scale: 6.0
+                    n_tokens: 11520
+                  flow_shift: 12.0
+                  image_path: None
+                 save_output: True
+            output_file_path: outputs/wan22_no_cache.mp4
+        
+[12-05 18:11:22] Processing prompt 1/1: Cinematic establishing shot of a city at dusk
+[12-05 18:11:22] Creating pipeline stages...
+[12-05 18:11:22] Using FlashAttention (FA3 for hopper, FA4 for blackwell) backend
+[12-05 18:11:22] Running pipeline stages: ['input_validation_stage', 'prompt_encoding_stage', 'conditioning_stage', 'timestep_preparation_stage', 'latent_preparation_stage', 'denoising_stage', 'decoding_stage']
+[12-05 18:11:22] [InputValidationStage] started...
+[12-05 18:11:22] [InputValidationStage] finished in 0.0002 seconds
+[12-05 18:11:22] [TextEncodingStage] started...
+[12-05 18:11:24] [TextEncodingStage] finished in 2.7598 seconds
+[12-05 18:11:24] [ConditioningStage] started...
+[12-05 18:11:24] [ConditioningStage] finished in 0.0001 seconds
+[12-05 18:11:24] [TimestepPreparationStage] started...
+[12-05 18:11:24] [TimestepPreparationStage] finished in 0.0030 seconds
+[12-05 18:11:24] [LatentPreparationStage] started...
+[12-05 18:11:24] [LatentPreparationStage] finished in 0.0016 seconds
+[12-05 18:11:24] [DenoisingStage] started...
+  0%|          | 0/40 [00:00<?, ?it/s]  2%|▎         | 1/40 [00:17<11:41, 17.99s/it]  5%|▌         | 2/40 [00:19<05:11,  8.21s/it]  8%|▊         | 3/40 [00:20<03:08,  5.09s/it] 10%|█         | 4/40 [00:22<02:10,  3.62s/it] 12%|█▎        | 5/40 [00:23<01:38,  2.81s/it] 15%|█▌        | 6/40 [00:24<01:18,  2.32s/it] 18%|█▊        | 7/40 [00:26<01:06,  2.01s/it] 20%|██        | 8/40 [00:27<00:57,  1.80s/it] 22%|██▎       | 9/40 [00:28<00:51,  1.67s/it] 25%|██▌       | 10/40 [00:30<00:47,  1.58s/it] 28%|██▊       | 11/40 [00:31<00:43,  1.51s/it] 30%|███       | 12/40 [00:33<00:41,  1.47s/it] 32%|███▎      | 13/40 [00:34<00:38,  1.44s/it] 35%|███▌      | 14/40 [00:35<00:36,  1.42s/it] 38%|███▊      | 15/40 [00:37<00:35,  1.40s/it] 40%|████      | 16/40 [00:38<00:33,  1.39s/it] 42%|████▎     | 17/40 [00:39<00:31,  1.38s/it] 45%|████▌     | 18/40 [00:41<00:30,  1.38s/it] 48%|████▊     | 19/40 [00:42<00:28,  1.38s/it] 50%|█████     | 20/40 [00:43<00:27,  1.37s/it] 52%|█████▎    | 21/40 [00:45<00:26,  1.37s/it] 55%|█████▌    | 22/40 [00:46<00:24,  1.37s/it] 57%|█████▊    | 23/40 [00:48<00:23,  1.37s/it] 60%|██████    | 24/40 [00:49<00:21,  1.37s/it] 62%|██████▎   | 25/40 [00:50<00:20,  1.37s/it] 65%|██████▌   | 26/40 [00:52<00:19,  1.37s/it] 68%|██████▊   | 27/40 [01:21<02:07,  9.82s/it] 70%|███████   | 28/40 [01:23<01:27,  7.28s/it] 72%|███████▎  | 29/40 [01:24<01:00,  5.51s/it] 75%|███████▌  | 30/40 [01:25<00:42,  4.27s/it] 78%|███████▊  | 31/40 [01:27<00:30,  3.40s/it] 80%|████████  | 32/40 [01:28<00:22,  2.79s/it] 82%|████████▎ | 33/40 [01:29<00:16,  2.36s/it] 85%|████████▌ | 34/40 [01:31<00:12,  2.06s/it] 88%|████████▊ | 35/40 [01:32<00:09,  1.86s/it] 90%|█████████ | 36/40 [01:34<00:06,  1.71s/it] 92%|█████████▎| 37/40 [01:35<00:04,  1.61s/it] 95%|█████████▌| 38/40 [01:36<00:03,  1.53s/it] 98%|█████████▊| 39/40 [01:38<00:01,  1.48s/it]100%|██████████| 40/40 [01:39<00:00,  1.45s/it]100%|██████████| 40/40 [01:39<00:00,  2.49s/it]
+[12-05 18:13:04] [DenoisingStage] average time per step: 2.4878 seconds
+[12-05 18:13:04] [DenoisingStage] finished in 99.5133 seconds
+[12-05 18:13:04] [DecodingStage] started...
+[12-05 18:13:05] [DecodingStage] finished in 1.2910 seconds
+[12-05 18:13:06] Saved output to outputs/wan22_no_cache.mp4
+[12-05 18:13:06] Pixel data generated successfully in 103.88 seconds
+[12-05 18:13:06] Completed batch processing. Generated 1 outputs in 103.88 seconds.
+[12-05 18:13:06] Generator was garbage collected without being shut down. Attempting to shut down the local server and client.
+[Performance] Metrics dumped to: /home/hadoop-scale-pmf/sgld_benchmark/perf_dump_wan22_no_cache.json
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

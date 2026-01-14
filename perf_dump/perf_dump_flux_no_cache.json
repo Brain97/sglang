@@ -1,0 +1,41 @@
+{
+  "timestamp": "2025-12-05T09:46:03.489723+00:00",
+  "request_id": "91688179-3c65-45de-9373-2e6b5960db58",
+  "commit_hash": "N/A",
+  "tag": "cli_generate",
+  "total_duration_ms": 11805.122595280409,
+  "steps": [
+    {
+      "name": "InputValidationStage",
+      "duration_ms": 0.06085634231567383
+    },
+    {
+      "name": "TextEncodingStage",
+      "duration_ms": 425.3215901553631
+    },
+    {
+      "name": "ConditioningStage",
+      "duration_ms": 0.016938894987106323
+    },
+    {
+      "name": "TimestepPreparationStage",
+      "duration_ms": 59.79200080037117
+    },
+    {
+      "name": "LatentPreparationStage",
+      "duration_ms": 0.2292431890964508
+    },
+    {
+      "name": "DenoisingStage",
+      "duration_ms": 10461.529713124037
+    },
+    {
+      "name": "DecodingStage",
+      "duration_ms": 671.1888201534748
+    }
+  ],
+  "meta": {
+    "prompt": "A futuristic cityscape at sunset with flying cars",
+    "model": "/home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/black-forest-labs/FLUX.1-dev/"
+  }
+}

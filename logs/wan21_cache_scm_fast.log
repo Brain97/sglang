@@ -1,0 +1,132 @@
+WARNING 12-05 18:06:55 [_attention_dispatch.py:343] Re-registered NATIVE attention backend to enable context parallelism with attn mask. You can disable this behavior by export env: export CACHE_DIT_ENABLE_CUSTOM_CP_NATIVE_ATTN_DISPATCH=0.
+INFO 12-05 18:06:55 [_attention_dispatch.py:456] Registered new attention backend: _SDPA_CUDNN, to enable context parallelism with attn mask. You can disable it by: export CACHE_DIT_ENABLE_CUSTOM_CP_NATIVE_ATTN_DISPATCH=0.
+[12-05 18:06:56] server_args: {"model_path": "/home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers", "attention_backend": null, "mode": "inference", "workload_type": "t2v", "cache_strategy": "none", "distributed_executor_backend": "mp", "nccl_port": null, "trust_remote_code": false, "revision": null, "num_gpus": 1, "tp_size": 1, "sp_degree": 1, "ulysses_degree": 1, "ring_degree": 1, "dp_size": 1, "dp_degree": 1, "enable_cfg_parallel": false, "hsdp_replicate_dim": 1, "hsdp_shard_dim": 1, "dist_timeout": null, "lora_path": null, "lora_nickname": "default", "vae_path": null, "lora_target_modules": null, "output_type": "pil", "dit_cpu_offload": true, "use_fsdp_inference": false, "text_encoder_cpu_offload": true, "image_encoder_cpu_offload": true, "vae_cpu_offload": true, "pin_cpu_memory": true, "mask_strategy_file_path": null, "STA_mode": "STA_inference", "skip_time_steps": 15, "enable_torch_compile": false, "disable_autocast": false, "VSA_sparsity": 0.0, "moba_config_path": null, "moba_config": {}, "master_port": 30102, "host": null, "port": null, "scheduler_port": 5580, "enable_stage_verification": true, "prompt_file_path": null, "model_paths": {}, "model_loaded": {"transformer": true, "vae": true}, "override_transformer_cls_name": null, "boundary_ratio": null, "log_level": "info"}
+[12-05 18:06:56] Local mode: True
+[12-05 18:06:56] Starting server...
+WARNING 12-05 18:07:03 [_attention_dispatch.py:343] Re-registered NATIVE attention backend to enable context parallelism with attn mask. You can disable this behavior by export env: export CACHE_DIT_ENABLE_CUSTOM_CP_NATIVE_ATTN_DISPATCH=0.
+INFO 12-05 18:07:03 [_attention_dispatch.py:456] Registered new attention backend: _SDPA_CUDNN, to enable context parallelism with attn mask. You can disable it by: export CACHE_DIT_ENABLE_CUSTOM_CP_NATIVE_ATTN_DISPATCH=0.
+[12-05 18:07:04] Scheduler bind at endpoint: tcp://localhost:5580
+[12-05 18:07:05] Initializing distributed environment with world_size=1, device=cuda:0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[12-05 18:07:08] Diffusers version: 0.33.0.dev0
+[12-05 18:07:08] Found model info: ModelInfo(pipeline_cls=<class 'sglang.multimodal_gen.runtime.pipelines.wan_pipeline.WanPipeline'>, sampling_param_cls=<class 'sglang.multimodal_gen.configs.sample.wan.WanT2V_1_3B_SamplingParams'>, pipeline_config_cls=<class 'sglang.multimodal_gen.configs.pipeline_configs.wan.WanT2V480PConfig'>)
+[12-05 18:07:08] Loading pipeline modules...
+[12-05 18:07:08] Model already exists locally
+[12-05 18:07:08] Model path: /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers
+[12-05 18:07:08] Diffusers version: 0.33.0.dev0
+[12-05 18:07:08] Loading pipeline modules from config: {'_class_name': 'WanPipeline', '_diffusers_version': '0.33.0.dev0', 'scheduler': ['diffusers', 'UniPCMultistepScheduler'], 'text_encoder': ['transformers', 'UMT5EncoderModel'], 'tokenizer': ['transformers', 'T5TokenizerFast'], 'transformer': ['diffusers', 'WanTransformer3DModel'], 'vae': ['diffusers', 'AutoencoderKLWan']}
+[12-05 18:07:08] Loading required components: ['text_encoder', 'tokenizer', 'vae', 'transformer', 'scheduler']
+Set TORCH_CUDA_ARCH_LIST to 9.0
+Loading required modules:   0%|          | 0/5 [00:00<?, ?it/s][12-05 18:07:08] Loading text_encoder using transformers from /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/text_encoder
+[12-05 18:07:08] Loading text_encoder from /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/text_encoder
+[12-05 18:07:08] HF model config: {'architectures': ['UMT5EncoderModel'], 'classifier_dropout': 0.0, 'd_ff': 10240, 'd_kv': 64, 'd_model': 4096, 'decoder_start_token_id': 0, 'dense_act_fn': 'gelu_new', 'dropout_rate': 0.1, 'eos_token_id': 1, 'feed_forward_proj': 'gated-gelu', 'initializer_factor': 1.0, 'is_encoder_decoder': True, 'is_gated_act': True, 'layer_norm_epsilon': 1e-06, 'num_decoder_layers': 24, 'num_heads': 64, 'num_layers': 24, 'output_past': True, 'pad_token_id': 0, 'relative_attention_max_distance': 128, 'relative_attention_num_buckets': 32, 'scalable_attention': True, 'tie_word_embeddings': False, 'use_cache': True, 'vocab_size': 256384}
+
+Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+[A
+Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:03,  1.00it/s]
+[A
+Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:02<00:03,  1.07s/it]
+[A
+Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:02<00:01,  1.11it/s]
+[A
+Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:03<00:00,  1.07it/s]
+[A
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:04<00:00,  1.03it/s]
+[ALoading safetensors checkpoint shards: 100% Completed | 5/5 [00:04<00:00,  1.03it/s]
+
+[12-05 18:07:14] Loading weights took 4.95 seconds
+[12-05 18:07:41] Loaded text_encoder: FSDPUMT5EncoderModel from: customized
+[12-05 18:07:41] Loaded module text_encoder from /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/text_encoder
+Loading required modules:  20%|██        | 1/5 [00:33<02:13, 33.49s/it][12-05 18:07:41] Loading tokenizer using transformers from /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/tokenizer
+[12-05 18:07:41] Loading tokenizer from /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/tokenizer
+[12-05 18:07:42] Loaded tokenizer: T5TokenizerFast from: customized
+[12-05 18:07:42] Loaded module tokenizer from /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/tokenizer
+Loading required modules:  40%|████      | 2/5 [00:33<00:42, 14.06s/it][12-05 18:07:42] Loading vae using diffusers from /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/vae
+[12-05 18:07:42] Loading vae from /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/vae
+[12-05 18:07:42] HF model config: {'attn_scales': [], 'base_dim': 96, 'dim_mult': [1, 2, 4, 4], 'dropout': 0.0, 'latents_mean': [-0.7571, -0.7089, -0.9113, 0.1075, -0.1745, 0.9653, -0.1517, 1.5508, 0.4134, -0.0715, 0.5517, -0.3632, -0.1922, -0.9497, 0.2503, -0.2921], 'latents_std': [2.8184, 1.4541, 2.3275, 2.6558, 1.2196, 1.7708, 2.6052, 2.0743, 3.2687, 2.1526, 2.8652, 1.5579, 1.6382, 1.1253, 2.8251, 1.916], 'num_res_blocks': 2, 'temperal_downsample': [False, True, True], 'z_dim': 16}
+[12-05 18:07:42] Loaded vae: AutoencoderKLWan from: customized
+[12-05 18:07:42] Loaded module vae from /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/vae
+[12-05 18:07:42] Loading transformer using diffusers from /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/transformer
+[12-05 18:07:42] Loading transformer from /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/transformer
+[12-05 18:07:42] transformer cls_name: WanTransformer3DModel
+[12-05 18:07:42] Loading model from 2 safetensors files: ['/home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/transformer/diffusion_pytorch_model-00001-of-00002.safetensors', '/home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/transformer/diffusion_pytorch_model-00002-of-00002.safetensors']
+[12-05 18:07:42] Loading WanTransformer3DModel, default_dtype: torch.bfloat16
+[12-05 18:07:42] Using FlashAttention (FA3 for hopper, FA4 for blackwell) backend
+
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+[ALoading safetensors checkpoint shards: 100% Completed | 2/2 [00:00<00:00, 97.24it/s]
+
+[12-05 18:07:43] Loaded model with 1.42B parameters
+[12-05 18:07:43] Loaded transformer: WanTransformer3DModel from: customized
+[12-05 18:07:43] Loaded module transformer from /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/transformer
+Loading required modules:  80%|████████  | 4/5 [00:34<00:05,  5.49s/it][12-05 18:07:43] Loading scheduler using diffusers from /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/scheduler
+[12-05 18:07:43] Loading scheduler from /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/scheduler
+[12-05 18:07:43] Loaded scheduler: UniPCMultistepScheduler from: customized
+[12-05 18:07:43] Loaded module scheduler from /home/hadoop-scale-pmf/dolphinfs_ssd_hadoop-scale-pmf/guoshuxi/huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/scheduler
+Loading required modules: 100%|██████████| 5/5 [00:34<00:00,  6.95s/it]
+[12-05 18:07:43] Pipelines instantiated
+[12-05 18:07:43] Worker 0: Initialized device, model, and distributed environment.
+[12-05 18:07:43] Worker 0: Scheduler loop started.
+[12-05 18:07:43] Rank 0 scheduler listening on tcp://*:5580
+[12-05 18:07:43] Sampling params:
+                       width: 832
+                      height: 480
+                  num_frames: 81
+                      prompt: Cinematic establishing shot of a city at dusk
+                  neg_prompt: Bright tones, overexposed, static, blurred details, subtitles, style, works, paintings, images, static, overall gray, worst quality, low quality, JPEG compression residue, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, misshapen limbs, fused fingers, still picture, messy background, three legs, many people in the background, walking backwards
+                        seed: 1024
+                 infer_steps: 50
+      num_outputs_per_prompt: 1
+              guidance_scale: 3.0
+     embedded_guidance_scale: 6.0
+                    n_tokens: 131040
+                  flow_shift: 3.0
+                  image_path: None
+                 save_output: True
+            output_file_path: outputs/wan21_cache_scm_fast.mp4
+        
+[12-05 18:07:43] Processing prompt 1/1: Cinematic establishing shot of a city at dusk
+[12-05 18:07:43] Creating pipeline stages...
+[12-05 18:07:43] Using FlashAttention (FA3 for hopper, FA4 for blackwell) backend
+[12-05 18:07:43] Running pipeline stages: ['input_validation_stage', 'prompt_encoding_stage', 'conditioning_stage', 'timestep_preparation_stage', 'latent_preparation_stage', 'denoising_stage', 'decoding_stage']
+[12-05 18:07:43] [InputValidationStage] started...
+[12-05 18:07:43] [InputValidationStage] finished in 0.0002 seconds
+[12-05 18:07:43] [TextEncodingStage] started...
+[12-05 18:07:45] [TextEncodingStage] finished in 2.8427 seconds
+[12-05 18:07:45] [ConditioningStage] started...
+[12-05 18:07:45] [ConditioningStage] finished in 0.0001 seconds
+[12-05 18:07:45] [TimestepPreparationStage] started...
+[12-05 18:07:45] [TimestepPreparationStage] finished in 0.0030 seconds
+[12-05 18:07:45] [LatentPreparationStage] started...
+[12-05 18:07:45] [LatentPreparationStage] finished in 0.0018 seconds
+[12-05 18:07:45] [DenoisingStage] started...
+[12-05 18:07:45] SCM: generated mask with 20 compute steps, 30 cache steps (preset=fast)
+[12-05 18:07:45] Enabling cache-dit on transformer with config: Fn=1, Bn=0, W=4, R=0.24, MC=3, TaylorSeer=False (order=1), steps=50
+[12-05 18:07:45] SCM enabled: 20 compute steps, 30 cache steps, policy=dynamic
+INFO 12-05 18:07:45 [cache_adapter.py:49] WanTransformer3DModel is officially supported by cache-dit. Use it's pre-defined BlockAdapter directly!
+WARNING 12-05 18:07:45 [__init__.py:34] Transformer class WanTransformer3DModel is from sglang.multimodal_gen.runtime.models.dits.wanvideo not diffusers, skipping strict type check in BlockAdapter.
+INFO 12-05 18:07:45 [block_adapters.py:229] Auto fill blocks_name: blocks.
+INFO 12-05 18:07:45 [block_adapters.py:503] Match Block Forward Pattern: WanTransformerBlock, ForwardPattern.Pattern_2
+INFO 12-05 18:07:45 [block_adapters.py:503] IN:('hidden_states', 'encoder_hidden_states'), OUT:('hidden_states',))
+INFO 12-05 18:07:45 [cache_adapter.py:134] Use custom 'enable_separate_cfg' from BlockAdapter: True. Pipeline: FakeDiffusionPipeline.
+INFO 12-05 18:07:45 [cache_adapter.py:307] Collected Context Config: DBCache_F1B0_W4I1M0MC3_R0.24_SCM11111111111001100000110000000110000000001100000001_dynamic, Calibrator Config: None
+INFO 12-05 18:07:45 [pattern_base.py:70] Match Blocks: CachedBlocks_Pattern_0_1_2, for blocks, cache_context: blocks_139682000928352, context_manager: FakeDiffusionPipeline_139681435720864.
+[12-05 18:07:45] cache-dit enabled on transformer (steps=50, Fn=1, Bn=0, rdt=0.240)
+  0%|          | 0/50 [00:00<?, ?it/s]  2%|▏         | 1/50 [00:05<04:11,  5.14s/it]  4%|▍         | 2/50 [00:09<03:47,  4.74s/it]  6%|▌         | 3/50 [00:14<03:36,  4.61s/it]  8%|▊         | 4/50 [00:18<03:29,  4.56s/it] 10%|█         | 5/50 [00:23<03:23,  4.52s/it] 12%|█▏        | 6/50 [00:27<03:18,  4.51s/it] 14%|█▍        | 7/50 [00:31<03:13,  4.49s/it] 16%|█▌        | 8/50 [00:36<03:08,  4.49s/it] 18%|█▊        | 9/50 [00:40<03:03,  4.48s/it] 20%|██        | 10/50 [00:45<02:59,  4.48s/it] 22%|██▏       | 11/50 [00:49<02:54,  4.47s/it] 24%|██▍       | 12/50 [00:49<02:00,  3.17s/it] 26%|██▌       | 13/50 [00:50<01:23,  2.26s/it] 28%|██▊       | 14/50 [00:54<01:45,  2.92s/it] 30%|███       | 15/50 [00:59<01:58,  3.39s/it] 32%|███▏      | 16/50 [00:59<01:22,  2.42s/it] 34%|███▍      | 17/50 [00:59<00:57,  1.75s/it] 36%|███▌      | 18/50 [01:03<01:21,  2.56s/it] 38%|███▊      | 19/50 [01:04<00:57,  1.85s/it] 40%|████      | 20/50 [01:04<00:40,  1.34s/it] 42%|████▏     | 21/50 [01:08<01:06,  2.28s/it] 44%|████▍     | 22/50 [01:13<01:22,  2.93s/it] 46%|████▌     | 23/50 [01:13<00:56,  2.11s/it] 48%|████▊     | 24/50 [01:13<00:39,  1.53s/it] 50%|█████     | 25/50 [01:17<01:00,  2.41s/it] 52%|█████▏    | 26/50 [01:18<00:41,  1.74s/it] 54%|█████▍    | 27/50 [01:18<00:29,  1.27s/it] 56%|█████▌    | 28/50 [01:18<00:20,  1.06it/s] 58%|█████▊    | 29/50 [01:22<00:41,  2.00s/it] 60%|██████    | 30/50 [01:27<00:54,  2.74s/it] 62%|██████▏   | 31/50 [01:31<01:01,  3.26s/it] 64%|██████▍   | 32/50 [01:32<00:42,  2.33s/it] 66%|██████▌   | 33/50 [01:32<00:28,  1.68s/it] 68%|██████▊   | 34/50 [01:32<00:19,  1.23s/it] 70%|███████   | 35/50 [01:36<00:32,  2.20s/it] 72%|███████▏  | 36/50 [01:37<00:22,  1.59s/it] 74%|███████▍  | 37/50 [01:37<00:15,  1.16s/it] 76%|███████▌  | 38/50 [01:37<00:10,  1.16it/s] 78%|███████▊  | 39/50 [01:41<00:21,  1.94s/it] 80%|████████  | 40/50 [01:42<00:14,  1.41s/it] 82%|████████▏ | 41/50 [01:46<00:20,  2.32s/it] 84%|████████▍ | 42/50 [01:50<00:23,  2.97s/it] 86%|████████▌ | 43/50 [01:51<00:14,  2.13s/it] 88%|████████▊ | 44/50 [01:51<00:09,  1.54s/it] 90%|█████████ | 45/50 [01:51<00:05,  1.13s/it] 92%|█████████▏| 46/50 [01:55<00:08,  2.13s/it] 94%|█████████▍| 47/50 [01:56<00:04,  1.54s/it] 96%|█████████▌| 48/50 [01:56<00:02,  1.13s/it] 98%|█████████▊| 49/50 [02:00<00:02,  2.13s/it]100%|██████████| 50/50 [02:05<00:00,  2.83s/it]100%|██████████| 50/50 [02:05<00:00,  2.50s/it]
+[12-05 18:09:51] [DenoisingStage] average time per step: 2.5033 seconds
+[12-05 18:09:51] [DenoisingStage] finished in 125.1715 seconds
+[12-05 18:09:51] [DecodingStage] started...
+[12-05 18:09:58] [DecodingStage] finished in 7.7237 seconds
+[12-05 18:10:01] Saved output to outputs/wan21_cache_scm_fast.mp4
+[12-05 18:10:01] Pixel data generated successfully in 137.97 seconds
+[12-05 18:10:01] Completed batch processing. Generated 1 outputs in 137.97 seconds.
+[12-05 18:10:01] Generator was garbage collected without being shut down. Attempting to shut down the local server and client.
+[Performance] Metrics dumped to: /home/hadoop-scale-pmf/sgld_benchmark/perf_dump_wan21_cache_scm_fast.json
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
